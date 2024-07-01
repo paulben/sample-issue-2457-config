@@ -19,14 +19,24 @@ app:
     cpu: 1
 
   # List of environment variables that are set for the application
+  # env:
+  #   - name: JVM_ARGS 
+  #     value: "-Xms=1024m"
   env:
-    - name: JVM_ARGS 
-      value: "-Xms=1024m"
-
-  # List of variables that can be referenced in the server.xml
+    - name: JVM_ARGS
+      value: "-DenvironmentType=stage"
   variables:
-    - name: io_openliberty_sample_system_inMaintenance
-      value: "false"
+    - name: discoveryEndpoint
+      value: "https://app-e64987b3-c72a-41d8-b458-720ace62efda.staging.us-east.c2.appflow.dev.ibmappdomain.cloud/oidc/endpoint/OidcConfigSample/.well-known/openid-configuration"
+    - name: clientId
+      value: "client01"
+    - name: clientSecret
+      secret: "CLIENT_SECRET"
+
+  # # List of variables that can be referenced in the server.xml
+  # variables:
+  #   - name: io_openliberty_sample_system_inMaintenance
+  #     value: "false"
       
   # observability:
   #  cloudwatch:   
